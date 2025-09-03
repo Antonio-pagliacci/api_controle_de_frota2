@@ -12,19 +12,19 @@ exports.buscar = (callback) => {
   db.query(sql, callback);
 };
 
-exports.buscarPorId = (id_vtr, callback) => {
-  const sql = "SELECT * FROM viaturas WHERE id_vtr = ?";
-  db.query(sql, [id_vtr], callback);
+exports.buscarPorId = (id, callback) => {
+  const sql = "SELECT * FROM viaturas WHERE id = ?";
+  db.query(sql, [id], callback);
 };
 
-exports.atualizar = (id_vtr, viatura, callback) => {
-  const { placa_vtr, marca_vtr, modelo_vtr, ano_vtr } = viatura;
+exports.atualizar = (id, viatura, callback) => {
+  const { placa, marca, modelo, ano } = viatura;
   const sql =
-    "UPDATE viaturas SET placa_vtr = ?, marca_vtr = ?, modelo_vtr = ?, ano_vtr = ? WHERE id_vtr = ?";
-  db.query(sql, [placa_vtr, marca_vtr, modelo_vtr, ano_vtr, id_vtr], callback);
+    "UPDATE viaturas SET placa = ?, marca = ?, modelo = ?, ano = ? WHERE id = ?";
+  db.query(sql, [placa, marca, modelo, ano, id], callback);
 };
 
-exports.deletar = (id_vtr, callback) => {
-  const sql = "DELETE FROM viaturas WHERE id_vtr = ?";
-  db.query(sql, [id_vtr], callback);
+exports.deletar = (id, callback) => {
+  const sql = "DELETE FROM viaturas WHERE id = ?";
+  db.query(sql, [id], callback);
 };

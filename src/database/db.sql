@@ -6,11 +6,11 @@ USE controle_de_frota;
 
 -- Tabela viaturas
 CREATE TABLE viaturas (
-    id_vtr INT AUTO_INCREMENT PRIMARY KEY,
-    placa_vtr VARCHAR(10) NOT NULL,
-    marca_vtr VARCHAR(50) NOT NULL,
-    modelo_vtr VARCHAR(50) NOT NULL,
-    ano_vtr INT NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    placa VARCHAR(10) NOT NULL,
+    marca VARCHAR(50) NOT NULL,
+    modelo VARCHAR(50) NOT NULL,
+    ano INT NOT NULL
 );
 
 -- Tabela motoristas
