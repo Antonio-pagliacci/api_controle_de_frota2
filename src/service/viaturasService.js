@@ -1,22 +1,7 @@
-const repo = require('../repository/viaturaRepository.js')
+const repo = require('../repository/viaturaRepository.js');
 
-
-exports.getTodos = (retorno) => {
-  repo.buscar(retorno);
-};
-
-exports.getPorId = (id, retorno) => {
-  repo.buscarPorId(id, retorno);
-};
-
-exports.criar = (cliente, retorno) => {
-  repo.inserir(cliente, retorno);
-};
-
-exports.atualizar = (id, cliente, retorno) => {
-  repo.atualizar(id, cliente, retorno);
-};
-
-exports.deletar = (id, retorno) => {
-  repo.deletar(id, retorno);
-};
+exports.getTodos = (callback) => repo.buscar(callback);
+exports.getPorId = (id_vtr, callback) => repo.buscarPorId(id_vtr, callback);
+exports.criar = (viatura, callback) => repo.inserir(viatura, callback);
+exports.atualizar = (id_vtr, viatura, callback) => repo.atualizar(id_vtr, viatura, callback);
+exports.deletar = (id_vtr, callback) => repo.deletar(id_vtr, callback);

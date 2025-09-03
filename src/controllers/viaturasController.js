@@ -1,15 +1,15 @@
 const service = require("../service/viaturasService.js");
 
 exports.inserir = (req, res) => {
-  service.criar(req.body, (erro, resultado) => {
-    if (erro) {
-      return res.status(500).json({ erro: "Erro ao cadastrar nova viatura." });
-    } else {
-      res.status(201).json({
-        message: "Viatura cadastrada com sucesso!",
-        id: resultado.insetrId,
-      });
-    }
+  const viatura = req.body;
+
+  if (!viatura.placa_vtr || !viatura.marca_vtr || !viatura.modelo_vtr || !viatura.ano_vtr) {
+    return res.status(400).json({ erro: "Campos obrigatórios ausentes" });
+  }
+
+  service.criar(viatura, (erro, resultado) => {
+    if (erro) return res.status(500).json({ erro: "Erro ao cadastrar nova viatura." });
+    res.status(201).json({ message: "Viatura cadastrada com sucesso!", id: resultado.insertId });
   });
 };
 
